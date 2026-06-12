@@ -5,6 +5,10 @@ import WorldMap from "../components/map/WorldMap";
 
 import { useClimate } from "../context/ClimateContext";
 
+import TemperatureChart from "../components/charts/TemperatureChart";
+import CO2Chart from "../components/charts/CO2Chart";
+import EnergyChart from "../components/charts/EnergyChart";
+
 
 function Explorer() {
 
@@ -15,6 +19,8 @@ function Explorer() {
 
 
     const [year, setYear] = useState(2020);
+
+    const [selectedCountry, setSelectedCountry] = useState("Canada");
 
 
     if (loading) {
@@ -81,7 +87,48 @@ function Explorer() {
                     worldMap={data.worldMap}
                     temperatureData={data.temperature}
                     year={year}
+                    selectedCountry={selectedCountry}
+                    setSelectedCountry={setSelectedCountry}
                 />
+
+                <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 transition-all duration-500">
+
+                    {/* Left: Charts */}
+                    <div>
+
+                        <h2 className="text-3xl mb-4">
+                            {selectedCountry} Analytics
+                        </h2>
+
+                        <TemperatureChart
+                            data={data.temperature}
+                            country={selectedCountry}
+                        />
+
+                        <CO2Chart
+                            data={data.co2}
+                            country={selectedCountry}
+                        />
+
+                    </div>
+
+
+                    {/* Right: Energy */}
+                    <div>
+
+                        <EnergyChart
+                            data={data.energy}
+                            country={selectedCountry}
+                        />
+
+                        {/* Placeholder for future charts */}
+                        <div className="bg-black/30 rounded-xl p-4 mt-6 text-gray-400">
+                            More insights coming soon...
+                        </div>
+
+                    </div>
+
+                </div>
 
             </main>
 

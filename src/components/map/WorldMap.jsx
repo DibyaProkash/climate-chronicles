@@ -13,7 +13,9 @@ import {
 function WorldMap({
     worldMap,
     temperatureData,
-    year = 2020
+    year,
+    selectedCountry,
+    setSelectedCountry
 }) {
 
 
@@ -27,8 +29,6 @@ function WorldMap({
             [900, 500],
             worldMap
         );
-
-    const [selectedCountry, setSelectedCountry] = useState(null);    
 
 
     const path =
