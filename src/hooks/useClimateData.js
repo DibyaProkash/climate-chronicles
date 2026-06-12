@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import {
     loadTemperatureData,
     loadCO2Data,
-    loadEnergyData
+    loadEnergyData,
+    loadWorldMap
 } from "../utils/dataLoader";
 
 import {
@@ -15,9 +16,10 @@ import {
 function useClimateData() {
 
     const [data, setData] = useState({
-        temperature: [],
-        co2: [],
-        energy: []
+    temperature: [],
+    co2: [],
+    energy: [],
+    worldMap: null
     });
 
     const [loading, setLoading] =
@@ -31,22 +33,21 @@ function useClimateData() {
             const [
                 temp,
                 co2,
-                energy
+                energy,
+                worldMap
             ] = await Promise.all([
                 loadTemperatureData(),
                 loadCO2Data(),
-                loadEnergyData()
+                loadEnergyData(),
+                loadWorldMap()
             ]);
 
 
             setData({
-                temperature:
-                    processTemperature(temp),
-
-                co2:
-                    processCO2(co2),
-
-                energy
+                temperature: processTemperature(temp),
+                co2: processCO2(co2),
+                energy,
+                worldMap
             });
 
 

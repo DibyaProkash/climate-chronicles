@@ -29,3 +29,12 @@ export async function loadEnergyData() {
 
     return response.json();
 }
+
+export async function loadWorldMap() {
+
+    const response = await fetch(
+        "/data/world.geojson"
+    );
+
+    return response.json();
+}
