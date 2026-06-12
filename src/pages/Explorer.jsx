@@ -9,6 +9,9 @@ import TemperatureChart from "../components/charts/TemperatureChart";
 import CO2Chart from "../components/charts/CO2Chart";
 import EnergyChart from "../components/charts/EnergyChart";
 
+import useStory from "../hooks/useStory";
+import StoryPanel from "../components/story/StoryPanel";
+
 
 function Explorer() {
 
@@ -21,6 +24,8 @@ function Explorer() {
     const [year, setYear] = useState(2020);
 
     const [selectedCountry, setSelectedCountry] = useState("Canada");
+
+    const story = useStory(setYear);
 
 
     if (loading) {
@@ -80,6 +85,8 @@ function Explorer() {
 
                 </div>
 
+                <StoryPanel story={story} />
+
 
                 {/* World Map */}
 
@@ -131,6 +138,9 @@ function Explorer() {
                 </div>
 
             </main>
+
+            {/* Scroll driver */}           
+            <div className="h-[500vh]" />
 
         </>
     );
