@@ -1,25 +1,54 @@
 import Navbar from "../components/layout/Navbar";
+import {
+    useClimate
+} from "../context/ClimateContext";
+
 
 function Explorer() {
 
+
+    const {
+        data,
+        loading
+    } = useClimate();
+
+
+    if (loading) {
+        return (
+            <h1>
+                Loading climate data...
+            </h1>
+        );
+    }
+
+
     return (
+
         <>
             <Navbar />
 
-            <main className="pt-32 px-10">
+            <main className="pt-32 p-8">
 
-                <h1 className="text-5xl">
-                    Climate Explorer
+                <h1 className="text-4xl">
+                    Climate Data Loaded
                 </h1>
 
-                <p className="mt-5 text-gray-300">
-                    Interactive world map and story
-                    coming soon...
-                </p>
+
+                <pre className="mt-6">
+                    {
+                        JSON.stringify(
+                            data,
+                            null,
+                            2
+                        )
+                    }
+                </pre>
 
             </main>
+
         </>
     );
 }
+
 
 export default Explorer;

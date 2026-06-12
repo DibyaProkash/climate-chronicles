@@ -1,0 +1,15 @@
+country,year,co2
+Canada,1900,10
+Canada,1950,120
+Canada,2000,550
+Canada,2020,600
+
+India,1900,5
+India,1950,40
+India,2000,900
+India,2020,2500
+
+USA,1900,500
+USA,1950,2500
+USA,2000,5800
+USA,2020,4700

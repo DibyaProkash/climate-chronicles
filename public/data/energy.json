@@ -1,0 +1,17 @@
+[
+    {
+        "country": "Canada",
+        "renewable": 68,
+        "nonRenewable": 32
+    },
+    {
+        "country": "India",
+        "renewable": 25,
+        "nonRenewable": 75
+    },
+    {
+        "country": "USA",
+        "renewable": 21,
+        "nonRenewable": 79
+    }
+]

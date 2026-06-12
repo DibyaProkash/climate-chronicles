@@ -1,0 +1,15 @@
+country,year,temperature
+Canada,1900,-0.5
+Canada,1950,0.2
+Canada,2000,1.1
+Canada,2020,1.7
+
+India,1900,-0.2
+India,1950,0.1
+India,2000,0.8
+India,2020,1.2
+
+USA,1900,-0.3
+USA,1950,0.3
+USA,2000,1.0
+USA,2020,1.5

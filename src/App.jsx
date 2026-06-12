@@ -1,35 +1,50 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route
+} from "react-router-dom";
+
+import {
+    ClimateProvider
+} from "./context/ClimateContext";
 
 import Home from "./pages/Home";
 import Explorer from "./pages/Explorer";
 import About from "./pages/About";
 
+
 function App() {
 
-  return (
-    <BrowserRouter>
+    return (
 
-      <Routes>
+        <ClimateProvider>
 
-        <Route 
-          path="/"
-          element={<Home />}
-        />
+            <BrowserRouter>
 
-        <Route 
-          path="/explore"
-          element={<Explorer />}
-        />
+                <Routes>
 
-        <Route 
-          path="/about"
-          element={<About />}
-        />
+                    <Route
+                        path="/"
+                        element={<Home />}
+                    />
 
-      </Routes>
+                    <Route
+                        path="/explore"
+                        element={<Explorer />}
+                    />
 
-    </BrowserRouter>
-  );
+                    <Route
+                        path="/about"
+                        element={<About />}
+                    />
+
+                </Routes>
+
+            </BrowserRouter>
+
+        </ClimateProvider>
+
+    );
 }
 
 export default App;
